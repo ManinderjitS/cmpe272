@@ -1,7 +1,7 @@
 <?php 
-	$servername = "localhost";
-    $username = "user1";
-    $password = "password";
+	$servername = "caisy199437731.ipagemysql.com";
+    $username = "project";
+    $password = "123456abcd";
     $database = "cmpe272";
     //print("Here i m ");
     //Create connection
