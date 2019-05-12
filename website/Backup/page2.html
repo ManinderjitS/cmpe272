@@ -67,6 +67,24 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
   
+  <?php
+	$servername = "localhost";
+	$username = "project";
+	$password = "123456abcd";
+	$db = "cmpe272";
+	$conn = new mysqli($servername, $username, $password,$db);
+	 
+	if ($conn->connect_error) {
+		die("Connect Failed: " . $conn->connect_error);
+	}
+	$query = "Select * From Product;";
+		//$query = "Select * From User;";
+		//echo $query."<br>";
+	$result = mysqli_query($conn, $query);
+	while($row = mysqli_fetch_array($result)){
+		echo"Name:".$row['Name'].""."-web:".$row['Web']."-addr:".$row['ImageAddr']."-Cell Phone:".$row['Weblink']."<br>";
+	}
+	?>
   
 </body>
 </html>
