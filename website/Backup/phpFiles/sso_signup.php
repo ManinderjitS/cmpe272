@@ -7,10 +7,13 @@
 	require_once('dbConnection.php');
 	require_once('userSession.php');
 
+	echo "<h3>I m in the sso_signup.php</h3><br>";
 	if(userNotLoggedIn){
 		echo "<h3>You are already logged in as $_SESSION['username'].</h3> <br>";
 		header("Location: ../index.html");
 	}
+
+	echo "<h3>User not logged in so, signup</h3><br>";
 
 	extract($_POST);
 	// $servername = "localhost";
@@ -23,12 +26,13 @@
 
 	$o_auth = 0;
 
-	
-	$sql = "INSERT INTO users (username, first_name, last_name, email, address, phone, passcode) VALUES ('$userName', '$firstName', '$lastName', '$email', '$address', '$phone', '$password')";
+
+	$sql = "INSERT INTO User (user_name, first_name, last_name, email, address, phone, passcode) VALUES ('$userName', '$firstName', '$lastName', '$email', '$address', '$phone', '$password')";
 
 	echo "<br>".$sql."<br>";
 
 	if($conn->query($sql) === TRUE){
+		echo "<h3>Query was successfull.</h3><br>";
 		echo "User successfully added.";
 	}
 	else {
