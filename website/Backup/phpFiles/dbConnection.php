@@ -1,5 +1,5 @@
 <?php
-		$servername = "caisy199437731.ipagemysql.com";
+	$servername = "caisy199437731.ipagemysql.com";
     $username = "project";
     $password = "123456abcd.";
     $database = "cmpe272";
@@ -7,7 +7,7 @@
     //Create connection
     $conn = new mysqli($servername, $username, $password, $database);
 
-	echo "----------->".$firstName."<br>";
+	//echo "----------->".$firstName."<br>";
 
     //Check connection
     if ($conn->connect_error){
