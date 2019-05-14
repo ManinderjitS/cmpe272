@@ -28,3 +28,4 @@
 	// $conn = new mysqli($servername, $username, $password, $database);
 	//$firstName, $lastName, $email, $phone, $address;
 	$conn->close();
+?>
