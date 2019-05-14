@@ -4,12 +4,13 @@
 	$username = "project";
 	$password = "123456abcd";
 	*/
+	echo "<h3>I m here</h3><br>";
 	require_once('dbConnection.php');
 	require_once('userSession.php');
 
 	echo "<h3>I m in the sso_signup.php</h3><br>";
-	if(userNotLoggedIn){
-		echo "<h3>You are already logged in as $_SESSION['username'].</h3> <br>";
+	if(userLoggedIn()){
+		echo "<h3>You are already logged in as ".$_SESSION['username']."</h3> <br>";
 		header("Location: ../index.html");
 	}
 
@@ -36,7 +37,7 @@
 		echo "User successfully added.";
 	}
 	else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
+		echo "Error: ".$sql ."<br>".$conn->error;
 	}
 
 
