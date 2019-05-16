@@ -13,8 +13,8 @@
 
 	extract($_POST);
 
-	$checkUserNameInDB = "SELECT * from User WHERE user_name='$userName'";
-	$checkEmailInDB = "SELECT * from User WHERE email='$email'";
+	$checkUserNameInDB = "SELECT * from User WHERE user_name=\"'$userName'\"";
+	$checkEmailInDB = "SELECT * from User WHERE email=\"'$email'\"";
 
 	if($result = $conn->query($checkUserNameInDB)){
 		if($result->num_rows > 0){
