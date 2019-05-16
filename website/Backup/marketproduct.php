@@ -72,13 +72,22 @@
   <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>
   <script src="assets/theme/js/script.js"></script>
   
-  <br><br><br><br>
-  
-  <?php
-	$ch = curl_init();
-	curl_setopt($ch,CURLOPT_URL,$_GET['link']);
-	curl_exec($ch);
-?>
+  <br><br><br>
+<section>
+		<table width='100%' >  
+			<tr><td width='15%'></td>
+				<td width='50%' >  
+				  <?php
+					$ch = curl_init();
+					curl_setopt($ch,CURLOPT_URL,$_GET['link']);
+					curl_exec($ch);
+				?>
+				</td>
+				<td width='20%'></td>
+			</tr>
+		</table>		
+</section>
+	
 
 
 </body></html>
