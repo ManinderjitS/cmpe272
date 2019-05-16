@@ -56,13 +56,12 @@
             </div>
         </div>
     </div>
-    <div class="container">
+		<div class="container">
         <div class="row justify-content-center">
-            <div class="media-container-column col-lg-8" data-form-type="formoid">
-                <!---Formbuilder Form--->
-                <form action="phpFiles/sso_signup.php" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="yIkCqbAuZaE/1NMS9tkwPLl1QYvw7K2qQsq4PLtPQYzBJJprDXAi5Y0HASv5+t4J0/o15ziJudBdKitKRP0NgJTF94a+B2t0YZTGvRt7+sua7uz2RjHKTtB7KYUTue9z">
+
+                <form action="phpFiles/sso_signup.php" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
                     <div class="row row-sm-offset">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
                         </div>
                     </div>
@@ -100,7 +99,8 @@
 
                         <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4" href="index.html">CREATE USER</button></div>
                     </div>
-                </form><!---Formbuilder Form--->            </divv
+                </form>
+
         </div>
     </div>
 </section>
