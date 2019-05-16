@@ -19,14 +19,28 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
+  <style>
+	.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	margin: 6px 3px;
+	cursor: pointer;
+  }
 
+	.button2 {background-color: #008CBA;} /* Blue */
+	.button3 {background-color: #f44336;} /* Red */
+	.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+	.button5 {background-color: #555555;} /* Black */
+   </style>
 
 </head>
 <body>
-
-<?php
-  include "navigationHeader.php";
-?>
 
 <section class="engine"><a href="https://mobirise.info/z">best css templates</a></section><div class="mbr-section form1 cid-rq0xz5RVIW mbr-parallax-background" id="form1-q">
 
@@ -45,7 +59,7 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form action="phpFiles/sso_signin.php" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="zy3FIiLX3VScWJrdoEq4enAqwAWwRdnUjbI4s/9DAzg73dTxXMUPlRMtNZS2hkjVpIolUYlYZHsYfTj2qVezINrDz6r3ACym77sgbA0goZ67sfHzy61TlnGrJj2Wgyio">
+                <form action="phpFiles/sso_signin.php" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
                     <div class="row row-sm-offset">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Log In Successfully!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -64,11 +78,25 @@
 
                         <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4">LOG IN</button></div>
                     </div>
+                   <div class="mbr-section-btn text-center">
+                       <a href="./fblogin.php" class="btn button2 display-4">
+                            Facebook Login
+                        </a>
+
+                  </div>
+
+                   <div class="mbr-section-btn text-center">
+                        <a href="./googleconfig.php" class="btn button3 display-4">
+                            Google Login
+                        </a>
+                  </div>
                 </form><!---Formbuilder Form--->
             </div>
         </div>
     </div>
 </div>
+
+
 
 
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
