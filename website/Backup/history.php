@@ -1,3 +1,10 @@
+<?php
+  function reload(){
+	header('Location: http://shiyancai215.com/history_form.php');
+	die();
+}
+?>
+
 <!DOCTYPE html>
 <html  >
 <head>
@@ -7,9 +14,10 @@
   <meta name="generator" content="Mobirise v4.9.7, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
-  <meta name="description" content="Web Generator Description">
+  <meta name="description" content="All Products go here
+">
   
-  <title>Recent Visit</title>
+  <title>Our Products</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -23,7 +31,7 @@
   
 </head>
 <body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-k">
+  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-r">
 
     
 
@@ -48,15 +56,14 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item dropdown open">
-                    <a class="nav-link link dropdown-toggle text-white display-4" href="index.html" data-toggle="dropdown-submenu" aria-expanded="true"><span class="mbri-globe mbr-iconfont mbr-iconfont-btn"></span>Navigate</a><div class="dropdown-menu"><a class="dropdown-item text-white display-4" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a><a class="dropdown-item text-white display-4" href="CreateUser.html" aria-expanded="false"><span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Create User</a><a class="dropdown-item text-white display-4" href="Recent.html" aria-expanded="false"><span class="mbri-clock mbr-iconfont mbr-iconfont-btn"></span>History</a><a class="text-white dropdown-item display-4" href="products.html" aria-expanded="false" target="_blank"><span class="mbri-rocket mbr-iconfont mbr-iconfont-btn"></span>Products</a><a class="text-white dropdown-item display-4" href="TopRated.html" aria-expanded="false"><span class="mbri-star mbr-iconfont mbr-iconfont-btn"></span>Top Rated</a></div>
+                    <a class="nav-link link dropdown-toggle text-white display-4" href="index.html" data-toggle="dropdown-submenu" aria-expanded="true"><span class="mbri-globe mbr-iconfont mbr-iconfont-btn"></span>Navigate</a><div class="dropdown-menu"><a class="dropdown-item text-white display-4" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a><a class="dropdown-item text-white display-4" href="CreateUser.html" aria-expanded="false"><span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Create User</a><a class="dropdown-item text-white display-4" href="history.php" aria-expanded="false"><span class="mbri-clock mbr-iconfont mbr-iconfont-btn"></span>History</a><a class="text-white dropdown-item display-4" href="products.html" aria-expanded="false" target="_blank"><span class="mbri-rocket mbr-iconfont mbr-iconfont-btn"></span>Products</a><a class="text-white dropdown-item display-4" href="TopRated.html" aria-expanded="false"><span class="mbri-star mbr-iconfont mbr-iconfont-btn"></span>Top Rated</a></div>
                 </li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="page3.html"><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>
+            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="Login.html"><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>
                     
                     Log In</a></div>
         </div>
     </nav>
 </section>
-
 
 </table>
    <section class="engine"><a href="https://mobirise.info/s">bootstrap theme</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
@@ -202,20 +209,88 @@
 	}		
 	?>
 	<br><br><br><br>
-	<section>
+	<?php
+		if(!isset($bs)){
+	
+			$conn = new mysqli($servername, $username, $password,$db);
+		 
+			if ($conn->connect_error) {
+				die("Connect Failed: " . $conn->connect_error);
+			}
+				
+			$sql = "SELECT Allow_Track FROM User WHERE user_name='".$account."';";
+				
+			$result = mysqli_query($conn, $sql);
+				
+			$row = mysqli_fetch_array($result);
+				
+			if($row[Allow_Track] == 1){
+				$bs = "No tracking";
+			}elseif($row[Allow_Track] == 0){
+				$bs = "Record my steps";
+			}
+			mysqli_query($conn, $sql1);
+			
+			mysqli_close($conn);
+		}
+	?>
+<section>
 		<table width='100%' >  
 			<tr><td width='15%'></td>
 				<td width='50%' >
-					<form method = "post" action = "history.php">	
-					<input type = "submit" value = "Change Tracking State" name = "change"/> 
-					<span style="display:inline-block; width: 50;"></span>
-					<input type = "submit" value = "Delete All History" name = "delete"/> 
+					<form method = 'post' action = 'history_form.php'>	
+					<input type = 'submit' value = 'Change tracking state' name = 'change'/> 
+					<span style='display:inline-block; width: 50;'></span>
+					<input type = 'submit' value = 'Delete All History' name = 'delete'/> 
 					</form>	
 				</td>
 				<td width='20%'></td>
 			</tr>
 		</table>		
 	</section>
+	
+<section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="features18 popup-btn-cards cid-rqF9cVR4jL" id="features18-10">
+
+    
+
+    
+    <div class="container">
+        
+        
+        <div class="media-container-row pt-5 ">
+            <div class="card p-3 col-12 col-md-6">
+                <div class="card-wrapper ">
+                    <div class="card-img">
+                        <div class="mbr-overlay"></div>
+                        <div class="mbr-section-btn text-center"><a href="" class="btn btn-success display-4">Change Tracking State</a></div>
+                        <img src="assets/images/mbr-1046x785.jpg" alt="Mobirise" title="">
+                    </div>
+                    <div class="card-box">
+                        
+                        <p class="mbr-text mbr-fonts-style align-left display-7">Allow site to record my visit history or not</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-3 col-12 col-md-6">
+                <div class="card-wrapper">
+                    <div class="card-img">
+                        <div class="mbr-overlay"></div>
+                        <div class="mbr-section-btn text-center"><a href="" class="btn btn-secondary display-4">Clear History</a></div>
+                        <img src="assets/images/mbr-1046x589.jpg" alt="Mobirise" title="">
+                    </div>
+                    <div class="card-box">
+                        
+                        <p class="mbr-text mbr-fonts-style display-7">Clear all visit history. Everything will be gone, so do at your own risk!</p>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+    </div>
+</section>
 	
 	<?php
 	extract($_POST);
@@ -231,6 +306,7 @@
 		mysqli_query($conn, $sql);
 		
 		mysqli_close($conn);
+		reload();
 	} 
 	elseif(isset($change)){
 		$conn = new mysqli($servername, $username, $password,$db);
@@ -247,13 +323,56 @@
 		
 		if($row[Allow_Track] == 1){
 			$sql1 = "UPDATE User SET Allow_Track = 0 Where user_name='".$account."';";
+			$bs = "Record my steps";
+			alert("No tracking any more");
 		}elseif($row[Allow_Track] == 0){
 			$sql1 = "UPDATE User SET Allow_Track = 1 Where user_name='".$account."';";
+			$bs = "No tracking";
+			alert("your visit will be recorded.");
 		}
 		mysqli_query($conn, $sql1);
 		
 		mysqli_close($conn);
+		reload();
 	}
+	?>
+	
+	<?php
+		function button_str(): string{
+			
+			$account = "admin";
+			$servername = "caisy199437731.ipagemysql.com";
+			$username = "project";
+			$password = "123456abcd";
+			$db = "cmpe272";
+			
+			$conn = new mysqli($servername, $username, $password,$db);
+	 
+			if ($conn->connect_error) {
+				die("Connect Failed: " . $conn->connect_error);
+			}
+			
+			$sql = "SELECT Allow_Track FROM User WHERE user_name='".$account."';";
+			
+			$result = mysqli_query($conn, $sql);
+			
+			$row = mysqli_fetch_array($result);
+			
+			if($row[Allow_Track] == 1){
+				$bs = "No tracking";
+			}elseif($row[Allow_Track] == 0){
+				$bs = "Record my steps";
+			}
+			mysqli_query($conn, $sql1);
+			
+			mysqli_close($conn);
+			
+			return $bs;
+		}
+
+		function alert($msg) {
+			echo "<script type='text/javascript'>alert('$msg');</script>";
+		}
 	?>
 	
 	<br>
