@@ -3,7 +3,7 @@
 	require_once('userSession.php');
 
 	//All of these paths are relative to sso_signup.php
-	$indexFilePath = "../index.html";
+	$indexFilePath = "../index.php";
 	$createUserPath = "../CreateUser.php";
 	$loginPath = "../Login.php";
 
@@ -13,8 +13,8 @@
 
 	extract($_POST);
 
-	$checkUserNameInDB = "SELECT * from User WHERE user_name=\"'$userName'\"";
-	$checkEmailInDB = "SELECT * from User WHERE email=\"'$email'\"";
+	$checkUserNameInDB = "SELECT * from User WHERE user_name=\"".$userName."\"";
+	$checkEmailInDB = "SELECT * from User WHERE email=\"".$email."\"";
 
 	if($result = $conn->query($checkUserNameInDB)){
 		if($result->num_rows > 0){
