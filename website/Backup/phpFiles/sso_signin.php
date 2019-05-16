@@ -6,10 +6,10 @@
 	$query = "SELECT * from User WHERE user_name=\"".$name."\" and passcode=\"".$password."\"";
 	if($result = $conn->query($query)){
 		if($row = $result->fetch_assoc()){
-			$_SESSION['loggedin'] = TRUE;
-			$_SESSION['username'] = $row['user_name'];
+			$_SESSION['login'] = TRUE;
+			$_SESSION['name'] = $row['user_name'];
 			$_SESSION['email'] = $row['email'];
-			$_SESSION['picture'] = "default email";
+			$_SESSION['picture'] = "../default_guest.png";
 			header("Location: ../index.php?login=success");
 		}
 	}else{
