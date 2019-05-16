@@ -7,7 +7,7 @@
 
 	date_default_timezone_set('America/Los_Angeles');
 	$mysqltime = date ("Y-m-d");
-	$conn = new mysql($servername, $username, $password,$db);
+	$conn = new mysqli($servername, $username, $password,$db);
 	if ($conn->connect_error) {
 		die("Connect Failed: " . $conn->connect_error);
 	}
