@@ -112,7 +112,7 @@
 					<td width='50%'><h3>".
 						$row[Name].
 					"</h3><br>
-					<a href=".$row[Weblink]." style='color:black'>Go to store</a>
+					<a href=http://shiyancai215.com/marketproduct.php?link=".$row[Weblink]." style='color:black'>Go to store</a>
 					</td>
 				</tr>";
 			}
@@ -151,7 +151,7 @@
 					<td width='50%'><h3>".
 						$row[Name].
 					"</h3><br>
-					<a href=".$row[Weblink]." style='color:black'>Go to store</a>
+					<a href=http://shiyancai215.com/marketproduct.php?link=".$row[Weblink]." style='color:black'>Go to store</a>
 					</td>
 				</tr>";
 			}
@@ -190,7 +190,7 @@
 					<td width='50%'><h3>".
 						$row[Name].
 					"</h3><br>
-					<a href=".$row[Weblink]."  style='color:black'>Go to store</a>
+					<a href=http://shiyancai215.com/marketproduct.php?link=".$row[Weblink]."  style='color:black'>Go to store</a>
 					</td>
 				</tr>";
 			}
