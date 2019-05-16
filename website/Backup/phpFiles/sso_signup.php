@@ -1,7 +1,7 @@
 <?php
 	require_once('dbConnection.php');
 	require_once('userSession.php');
-	
+
 	//All of these paths are relative to sso_signup.php
 	$indexFilePath = "../index.html";
 	$createUserPath = "../CreateUser.php";
@@ -10,26 +10,28 @@
 	if(userLoggedIn()){
 		header("Location: ".$indexFilePath);
 	}
-	
+
 	extract($_POST);
 
 	$checkUserNameInDB = "SELECT * from User WHERE user_name='$userName'";
 	$checkEmailInDB = "SELECT * from User WHERE email='$email'";
-	
+
 	if($result = $conn->query($checkUserNameInDB)){
-		if($row = $result->fetch_assoc()){
+		if($result->num_rows > 0){
 			$_SESSION['reg_success'] = FALSE;
 			$_SESSION['reg_reason'] = "Username '$userName' is already taken.";
-			echo "User taken"; 
+			echo "User taken";
 			header("Location: ".$createUserPath);
+			die();
 		}
 	}
-	
+
 	if($result = $conn->query($checkEmailInDB)){
-		if($row = $result->fetch_assoc()){
+		if($result->num_rows > 0){
 			$_SESSION['reg_success'] = FALSE;
-			$_SESSION['reg_reason'] = "Email '$email' is already being used."; 
+			$_SESSION['reg_reason'] = "Email '$email' is already being used.";
 			header("Location: ".$createUserPath);
+			die();
 		}
 	}
 
@@ -41,7 +43,7 @@
 	}
 	else {
 		$_SESSION['reg_success'] = FALSE;
-		$_SESSION['reg_reason'] = "Couldn't insert into table because: ".$conn->connect_error; 
+		$_SESSION['reg_reason'] = "Couldn't insert into table because: ".$conn->connect_error;
 		header("Location: ".$createUserPath);
 	}
 
