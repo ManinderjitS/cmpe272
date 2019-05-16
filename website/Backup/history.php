@@ -1,9 +1,4 @@
-<?php
-  function reload(){
-	header('Location: http://shiyancai215.com/history_form.php');
-	die();
-}
-?>
+
 
 <!DOCTYPE html>
 <html  >
@@ -65,15 +60,18 @@
     </nav>
 </section>
 
+
+
 </table>
-   <section class="engine"><a href="https://mobirise.info/s">bootstrap theme</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
+   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/dropdown/js/script.min.js"></script>
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/theme/js/script.js"></script> 
+  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>
+  <script src="assets/theme/js/script.js"></script>
   
   <br><br><br><br>
   
@@ -238,59 +236,15 @@
 		<table width='100%' >  
 			<tr><td width='15%'></td>
 				<td width='50%' >
-					<form method = 'post' action = 'history_form.php'>	
-					<input type = 'submit' value = 'Change tracking state' name = 'change'/> 
-					<span style='display:inline-block; width: 50;'></span>
-					<input type = 'submit' value = 'Delete All History' name = 'delete'/> 
-					</form>	
+					<div class="mbr-section-btn text-center"><a href="http://shiyancai215.com/history_form.php?choice=change" class="btn btn-success display-4">Change Tracking State</a></div>
+					<div class="mbr-section-btn text-center"><a href="http://shiyancai215.com/history_form.php?choice=delete" class="btn btn-secondary display-4">Clear History</a></div>
 				</td>
 				<td width='20%'></td>
 			</tr>
 		</table>		
-	</section>
-	
-<section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="features18 popup-btn-cards cid-rqF9cVR4jL" id="features18-10">
-
-    
-
-    
-    <div class="container">
-        
-        
-        <div class="media-container-row pt-5 ">
-            <div class="card p-3 col-12 col-md-6">
-                <div class="card-wrapper ">
-                    <div class="card-img">
-                        <div class="mbr-overlay"></div>
-                        <div class="mbr-section-btn text-center"><a href="" class="btn btn-success display-4">Change Tracking State</a></div>
-                        <img src="assets/images/mbr-1046x785.jpg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        
-                        <p class="mbr-text mbr-fonts-style align-left display-7">Allow site to record my visit history or not</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card p-3 col-12 col-md-6">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <div class="mbr-overlay"></div>
-                        <div class="mbr-section-btn text-center"><a href="" class="btn btn-secondary display-4">Clear History</a></div>
-                        <img src="assets/images/mbr-1046x589.jpg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        
-                        <p class="mbr-text mbr-fonts-style display-7">Clear all visit history. Everything will be gone, so do at your own risk!</p>
-                    </div>
-                </div>
-            </div>
-
-            
-
-            
-        </div>
-    </div>
 </section>
+	
+
 	
 	<?php
 	extract($_POST);
@@ -376,6 +330,12 @@
 	?>
 	
 	<br>
+	
+	<?php
+  if (isset($_GET['alert'])) {
+	alert($_GET['alert']);
+  }
+	?>
 </body>
 </html>
 
