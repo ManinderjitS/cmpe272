@@ -97,7 +97,7 @@
                             <input type="text" name="address" data-form-field="Address" required="required" class="form-control display-7" id="addressForm">
                         </div>
 
-                        <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4" href="index.html">CREATE USER</button></div>
+                        <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4">CREATE USER</button></div>
                     </div>
                 </form>
 

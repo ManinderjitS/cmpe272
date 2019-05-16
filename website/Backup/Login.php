@@ -42,6 +42,10 @@
 </head>
 <body>
 
+<?php
+  include "navigationHeader.php";
+?>
+
 <section class="engine"><a href="https://mobirise.info/z">best css templates</a></section><div class="mbr-section form1 cid-rq0xz5RVIW mbr-parallax-background" id="form1-q">
 
 
@@ -57,7 +61,6 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
                 <form action="phpFiles/sso_signin.php" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
                     <div class="row row-sm-offset">
@@ -91,7 +94,6 @@
                         </a>
                   </div>
                 </form><!---Formbuilder Form--->
-            </div>
         </div>
     </div>
 </div>

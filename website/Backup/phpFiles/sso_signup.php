@@ -5,7 +5,7 @@
 	//All of these paths are relative to sso_signup.php
 	$indexFilePath = "../index.html";
 	$createUserPath = "../CreateUser.php";
-	$loginPath = "../Login.html";
+	$loginPath = "../Login.php";
 
 	if(userLoggedIn()){
 		header("Location: ".$indexFilePath);

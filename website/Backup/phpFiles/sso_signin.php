@@ -1,6 +1,7 @@
 <?php
 
 	require_once('dbConnection.php');
+	require_once('userSession.php');
 	echo "<h1>I m here</h1><br>";
 	extract($_POST);
 
