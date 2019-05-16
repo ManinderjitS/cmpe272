@@ -2,7 +2,6 @@
 	require_once('phpFiles/userSession.php');
 
 	if(isset($_SESSION['reg_success'])){
-		echo "<script type='text/javascript'>alert(".$_SESSION['reg_reason'].")</script>";
 		if(!$_SESSION['reg_success']){
 			echo "<br><h3>Reg failed because of: </h3><br>";
 			echo "<script type='text/javascript'>alert(Couldn't register)</script>";
