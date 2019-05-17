@@ -1,9 +1,5 @@
 <?php
 require_once('dbConnection.php');
-$topFiveMarket = "SELECT product_name, count(product_name) AS visits FROM UserVisit GROUP BY product_name ORDER BY visits DESC LIMIT 5";
-$topFiveBrewgy = "SELECT product_name, count(product_name) AS visits FROM UserVisit WHERE product_name LIKE 'Brewgy%' GROUP BY product_name ORDER BY visits DESC LIMIT 5";
-$topFiveCloudBook = "SELECT product_name, count(product_name) AS visits FROM UserVisit WHERE product_name LIKE 'Cloudbook%' GROUP BY product_name ORDER BY visits DESC LIMIT 5";
-$topFiveLeap = "SELECT product_name, count(product_name) AS visits FROM UserVisit WHERE product_name LIKE 'Service%' GROUP BY product_name ORDER BY visits DESC LIMIT 5";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
