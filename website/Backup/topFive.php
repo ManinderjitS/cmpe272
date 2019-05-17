@@ -35,8 +35,8 @@ require_once('dbConnection.php');
     <h1>Top Five Most Visited Leap</h1>
     <?php
     $topFiveLeap = mysqli_query($conn,"SELECT product_name, count(product_name) AS visits FROM UserVisit WHERE product_name LIKE 'Service%' GROUP BY product_name ORDER BY visits DESC LIMIT 5");
-    while($row = mysqli_fetch_array($getProducts)):; ?>
-      <a href='add_record.php?link=<?php echo $row['Weblink']; ?>' target="_blank"><img src="<?php echo $row['ImageAddr']; ?>" height="200" width="300"></a>
+    while($row = mysqli_fetch_array($topFiveLeap)):; ?>
+      <li><?php echo $row['product_name']; ?></li>
     <?php endwhile;
     ?>
 
