@@ -1,7 +1,13 @@
 <?php
+	if(!session_id()) {
+	  session_start();
+	}
+	if (isset($_SESSION['login'])) {
+	  $name = $_SESSION['name'];
+	  $picture_url = $_SESSION['picture'];
+	}
   if (isset($_GET['choice'])) {
-	  
-	  header('Location: http://shiyancai215.com/history.php?alert='.runMyFunction());
+ 	  header('Location: http://shiyancai215.com/history.php?alert='.runMyFunction());
 	  exit();
   }
  ?>
@@ -9,8 +15,9 @@
 <html>
 <body>
 <?php
+
 function runMyFunction():string {
-	$account = "admin";
+	$account = $_SESSION['name'];
 	$servername = "caisy199437731.ipagemysql.com";
 	$username = "project";
 	$password = "123456abcd";

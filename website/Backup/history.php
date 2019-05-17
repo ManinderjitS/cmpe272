@@ -25,40 +25,9 @@
   
 </head>
 <body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-r">
-
-    
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="http://shiyancai215.com">
-                         <img src="assets/images/logo2.png" alt="Mobirise" title="" style="height: 3.8rem;">
-                    </a>
-                </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="http://shiyancai215.com">6969</a></span>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item dropdown open">
-                    <a class="nav-link link dropdown-toggle text-white display-4" href="index.html" data-toggle="dropdown-submenu" aria-expanded="true"><span class="mbri-globe mbr-iconfont mbr-iconfont-btn"></span>Navigate</a><div class="dropdown-menu"><a class="dropdown-item text-white display-4" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>Home</a><a class="dropdown-item text-white display-4" href="CreateUser.html" aria-expanded="false"><span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Create User</a><a class="dropdown-item text-white display-4" href="history.php" aria-expanded="false"><span class="mbri-clock mbr-iconfont mbr-iconfont-btn"></span>History</a><a class="text-white dropdown-item display-4" href="products.html" aria-expanded="false" target="_blank"><span class="mbri-rocket mbr-iconfont mbr-iconfont-btn"></span>Products</a><a class="text-white dropdown-item display-4" href="TopRated.html" aria-expanded="false"><span class="mbri-star mbr-iconfont mbr-iconfont-btn"></span>Top Rated</a></div>
-                </li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="Login.html"><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn"></span>
-                    
-                    Log In</a></div>
-        </div>
-    </nav>
-</section>
-
+  <?php
+  include "navigationHeader.php";
+?>
 
 
 </table>
@@ -75,12 +44,21 @@
   <br><br><br><br>
   
    <?php
-	$account = "admin";
+   
+	$account = $name;
 	$servername = "caisy199437731.ipagemysql.com";
 	$username = "project";
 	$password = "123456abcd";
 	$db = "cmpe272";
 	
+	if($_SESSION['login'] == 0){
+		echo "<br><br><br><table width='100%' >  
+				<tr><th width='15%'></th>
+				<th width='50%' align= 'center'><h3>Please Login first.</h3></th>
+				<th width='60%'></th>
+				</table>";
+		die();
+	}
 	 
 	date_default_timezone_set('America/Los_Angeles'); 
 	$mysqltime = date ("Y-m-d");
@@ -112,7 +90,7 @@
 					<td width='50%'><h3>".
 						$row[Name].
 					"</h3><br>
-					<a href=http://shiyancai215.com/marketproduct.php?link=".$row[Weblink]." style='color:black'>Go to store</a>
+					<a href=http://shiyancai215.com/add_record.php?link=".$row[Weblink]." style='color:black'>Go to store</a>
 					</td>
 				</tr>";
 			}
@@ -151,7 +129,7 @@
 					<td width='50%'><h3>".
 						$row[Name].
 					"</h3><br>
-					<a href=http://shiyancai215.com/marketproduct.php?link=".$row[Weblink]." style='color:black'>Go to store</a>
+					<a href=http://shiyancai215.com/add_record.php?link=".$row[Weblink]." style='color:black'>Go to store</a>
 					</td>
 				</tr>";
 			}
@@ -190,7 +168,7 @@
 					<td width='50%'><h3>".
 						$row[Name].
 					"</h3><br>
-					<a href=http://shiyancai215.com/marketproduct.php?link=".$row[Weblink]."  style='color:black'>Go to store</a>
+					<a href=http://shiyancai215.com/add_record.php?link=".$row[Weblink]."  style='color:black'>Go to store</a>
 					</td>
 				</tr>";
 			}
@@ -243,98 +221,19 @@
 		</table>		
 </section>
 	
-
-	
-	<?php
-	extract($_POST);
-	if(isset($delete)){
-		$conn = new mysqli($servername, $username, $password,$db);
-	 
-		if ($conn->connect_error) {
-			die("Connect Failed: " . $conn->connect_error);
-		}
-		
-		$sql = "DELETE FROM UserVisit Where user_name='".$account."';";
-		
-		mysqli_query($conn, $sql);
-		
-		mysqli_close($conn);
-		reload();
-	} 
-	elseif(isset($change)){
-		$conn = new mysqli($servername, $username, $password,$db);
-	 
-		if ($conn->connect_error) {
-			die("Connect Failed: " . $conn->connect_error);
-		}
-		
-		$sql = "SELECT Allow_Track FROM User WHERE user_name='".$account."';";
-		
-		$result = mysqli_query($conn, $sql);
-		
-		$row = mysqli_fetch_array($result);
-		
-		if($row[Allow_Track] == 1){
-			$sql1 = "UPDATE User SET Allow_Track = 0 Where user_name='".$account."';";
-			$bs = "Record my steps";
-			alert("No tracking any more");
-		}elseif($row[Allow_Track] == 0){
-			$sql1 = "UPDATE User SET Allow_Track = 1 Where user_name='".$account."';";
-			$bs = "No tracking";
-			alert("your visit will be recorded.");
-		}
-		mysqli_query($conn, $sql1);
-		
-		mysqli_close($conn);
-		reload();
-	}
-	?>
-	
-	<?php
-		function button_str(): string{
-			
-			$account = "admin";
-			$servername = "caisy199437731.ipagemysql.com";
-			$username = "project";
-			$password = "123456abcd";
-			$db = "cmpe272";
-			
-			$conn = new mysqli($servername, $username, $password,$db);
-	 
-			if ($conn->connect_error) {
-				die("Connect Failed: " . $conn->connect_error);
-			}
-			
-			$sql = "SELECT Allow_Track FROM User WHERE user_name='".$account."';";
-			
-			$result = mysqli_query($conn, $sql);
-			
-			$row = mysqli_fetch_array($result);
-			
-			if($row[Allow_Track] == 1){
-				$bs = "No tracking";
-			}elseif($row[Allow_Track] == 0){
-				$bs = "Record my steps";
-			}
-			mysqli_query($conn, $sql1);
-			
-			mysqli_close($conn);
-			
-			return $bs;
-		}
-
-		function alert($msg) {
-			echo "<script type='text/javascript'>alert('$msg');</script>";
-		}
-	?>
-	
 	<br>
 	
 	<?php
-  if (isset($_GET['alert'])) {
-	alert($_GET['alert']);
-  }
+	if (isset($_GET['alert'])) {
+		alert($_GET['alert']);
+	}
+	function alert($msg) {
+		echo "<script type='text/javascript'>alert('$msg');</script>";
+	}
 	?>
+	
+	
+
 </body>
 </html>
 

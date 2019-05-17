@@ -1,9 +1,14 @@
 <?php
-  if (isset($_GET['link'])) {
+	if(!session_id()) {
+	  session_start();
+	}
+	if (isset($_SESSION['login'])) {
+	  $name = $_SESSION['name'];
+	  $picture_url = $_SESSION['picture'];
 	  runMyFunction();
-	  header('Location:marketproduct.php?link='.$_GET['link']);
-	  exit();
-  }
+	} 
+	header('Location:marketproduct.php?link='.$_GET['link']);
+	exit();
  ?>
 
 <html>
@@ -11,7 +16,7 @@
 <?php
 	
 	function runMyFunction() {
-		$account = "admin";
+		$account = $_SESSION['name'];
 		$servername = "caisy199437731.ipagemysql.com";
 		$username = "project";
 		$password = "123456abcd";
