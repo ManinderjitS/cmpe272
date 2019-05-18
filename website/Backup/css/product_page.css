@@ -1,0 +1,34 @@
+.rating-section{
+   position: relative;
+   margin: auto;
+   margin-top: 50px;
+   background-color: #FDFFFC;
+   border-radius: 15px;
+   -webkit-box-shadow: 0px 25px 40px rgba(0,0,0,0.2);
+   -moz-box-shadow: 0px 25px 40px rgba(0,0,0,0.2);
+   box-shadow: 0px 25px 40px rgba(0,0,0,0.2);
+   display: flex;
+   flex-direction: row;
+   width: 500px;
+   height: 250px;
+}
+
+.rating-section .rating-form{
+   position: relative;
+   margin: 50px;
+   width: 100%;
+}
+
+.rating-title{
+   margin-bottom: 20px;
+   font-family: serif;
+   font-size: 20px;
+   font-weight: bold;
+   text-align: center;
+}
+
+.rating-form .btn{
+   position: relative;
+   margin-top: 25px;
+   float: right;
+}
