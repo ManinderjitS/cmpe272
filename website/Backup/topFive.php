@@ -1,5 +1,5 @@
 <?php
-require_once('dbConnection.php');
+require_once('phpFiles/dbConnection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -10,15 +10,15 @@ require_once('dbConnection.php');
   <body>
     <h1>Top Five Most Visited MarketPlace</h1>
     <?php
-    $topFiveMarket = "SELECT product_name, count(product_name) AS visits FROM UserVisit GROUP BY product_name ORDER BY visits DESC LIMIT 5";
-    while($row = mysqli_fetch_array($getProducts)):; ?>
+    $topFiveMarket = mysqli_query($conn, "SELECT product_name, count(product_name) AS visits FROM UserVisit GROUP BY product_name ORDER BY visits DESC LIMIT 5");
+    while($row = mysqli_fetch_array($topFiveMarket)):; ?>
       <li><?php echo $row['product_name']; ?></li>
     <?php endwhile;
     ?>
 
     <h1>Top Five Most Visited Brewgy</h1>
     <?php
-    $topFiveBrewgy = "SELECT product_name, count(product_name) AS visits FROM UserVisit WHERE product_name LIKE 'Brewgy%' GROUP BY product_name ORDER BY visits DESC LIMIT 5";
+    $topFiveBrewgy = mysqli_query($conn, "SELECT product_name, count(product_name) AS visits FROM UserVisit WHERE product_name LIKE 'Brewgy%' GROUP BY product_name ORDER BY visits DESC LIMIT 5");
     while($row = mysqli_fetch_array($topFiveBrewgy)):; ?>
       <li><?php echo $row['product_name']; ?></li>
     <?php endwhile;
