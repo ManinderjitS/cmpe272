@@ -11,7 +11,7 @@
   <meta name="description" content="All Products go here
 ">
   
-  <title>Our Products</title>
+  <title>History</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -51,7 +51,7 @@
 	$password = "123456abcd";
 	$db = "cmpe272";
 	
-	if($_SESSION['login'] == 0){
+	if(!isset($_SESSION['login'])){
 		echo "<br><br><br><table width='100%' >  
 				<tr><th width='15%'></th>
 				<th width='50%' align= 'center'><h3>Please Login first.</h3></th>
